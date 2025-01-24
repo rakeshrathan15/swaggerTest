@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Swagger Customer - OpenAPI 3.0
+  version: 1.0.0
+servers:
+  - url: /
+tags:
+  - description: Customer Address details
+    name: customer
+  - description: Customer Account details
+    name: account
+paths:
+  /createCustomer:
+    post:
+      operationId: createCustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        description: Create Customer with Nominee
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: Successful operation
+      tags:
+        - customer
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+        - tag: customer
+components:
+  schemas:
+    Address:
+      example:
+        pincode: pincode
+        city: city
+        state: state
+      properties:
+        city:
+          type: string
+        state:
+          type: string
+        pincode:
+          type: string
+      type: object
+    Customer:
+      example:
+        firstName: firstName
+        lastName: lastName
+        address:
+          pincode: pincode
+          city: city
+          state: state
+        adharNumber: adharNumber
+      properties:
+        adharNumber:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+      type: object
