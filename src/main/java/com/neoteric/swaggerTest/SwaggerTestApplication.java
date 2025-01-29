@@ -10,4 +10,7 @@ public class SwaggerTestApplication {
 		SpringApplication.run(SwaggerTestApplication.class, args);
 	}
 
+
+
+
 }
